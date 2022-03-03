@@ -70,3 +70,6 @@ DESCRIBE Musica;
 -- Limpar os dados da tabela; 
 TRUNCATE TABLE Musica;
 SELECT * FROM Musica;
+
+-- editando arquivo;
+SELECT titulo, artista FROM Musica;
