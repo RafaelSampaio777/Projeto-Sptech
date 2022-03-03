@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador copa do mundo</title>
+</head>
+<body>
+<div>
+    <h1> 
+        <span style="color: yellow;">Br</span><span style="color: green;">as</span><span style="color: blue;">il</span> 
+        x Ale<span style="color: red;">ma</span><span style="color: yellow;">nha</span>
+    </h1>
+</div>
+
+<div>
+<button onclick="Brasil()">Gol do Brasil</button>
+<button onclick="Alemanha()">Gol da Alemanha</button>
+</div>
+<br>
+<div>
+    <b>Tempo real do jogo:</b>
+</div>
+<div id="gols"></div>
+</body>
+</html>
+
+<script>
+    function Brasil(){
+        gols.innerHTML += "<div style='color: green;'>É goooolll do Brasil!!!</div>"
+    }
+    function Alemanha(){
+        gols.innerHTML += "<div style='background-color: darkred; color: yellow'>É goooolll da Alemanha!!!</div>"               
+    }
+</script>
