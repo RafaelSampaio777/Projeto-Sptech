@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #background {
+            justify-content: center;
+            background-color: #95d5b2;
+        }
+        h1 {
+            color: white;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        div {
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        .color_spreju {
+            color: #FFD700;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .color_sgraotech {
+            color: #B22222;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .color_cgraotech {
+            color: white;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body id="background">
+    <h1>Calcule seu lucro</h1>
+    <div>
+        Quantidade de grãos em Kg: <br>
+        <input type="number" id="quant_kg">
+    </div>
+    <div>
+        Valor investido: <br>
+        <input type="number" id="valor_invest">
+    </div>
+    <div>
+        <button onclick="calcular()">Calcular</button>
+    </div>
+    <div id="calculo"></div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var kg_quant = Number(quant_kg.value)
+        var invest_valor = Number(valor_invest.value)
+
+        var sacas_quant = kg_quant/60
+        var sacas_valor = sacas_quant*201.77
+        var sacas_lucro_spreju = sacas_valor-invest_valor
+
+        var preju_sgraotech = sacas_valor*0.20
+        var bruto_sgraotech = sacas_valor-preju_sgraotech
+        var liquido_sgraotech = bruto_sgraotech-invest_valor
+
+        var preju_cgraotech = sacas_valor*0.05
+        var bruto_cgraotech = sacas_valor-preju_cgraotech
+        var liquido_cgraotech = bruto_cgraotech-invest_valor
+
+        var reducao = liquido_cgraotech-liquido_sgraotech
+
+        var format_sacas_valor = sacas_valor.toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      }
+    );
+    var format_sacas_valor = sacas_valor.toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      }
+      );
+      var format_sacas_lucro_spreju = sacas_lucro_spreju.toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      }
+      );
+      var format_bruto_sgraotech = bruto_sgraotech.toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      }
+      );
+      var format_liquido_sgraotech = liquido_sgraotech.toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      }
+      );
+      var format_bruto_cgraotech = bruto_cgraotech.toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      }
+      );
+      var format_liquido_cgraotech = liquido_cgraotech.toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      }
+      );
+      var format_reducao = reducao.toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      }
+      );
+
+        calculo.innerHTML = `<h2 class="color_spreju">Sem nenhum prejuizo</h2>
+        <div class="color_spreju">Lucro bruto ${format_sacas_valor}</div>
+        <div class="color_spreju">Lucro liquido ${format_sacas_lucro_spreju}</div>
+        <h2 class="color_sgraotech">Sem GrãoTech</h2>
+        <div class="color_sgraotech">Lucro bruto ${format_bruto_sgraotech}</div>
+        <div class="color_sgraotech">Lucro liquido ${format_liquido_sgraotech}</div>
+        <h2 class="color_cgraotech">Com GrãoTech</h2>
+        <div class="color_cgraotech">Lucro bruto ${format_bruto_cgraotech}</div>
+        <div class="color_cgraotech">Lucro liquido ${format_liquido_cgraotech}</div>
+        <h2>Diferença</h2>
+        <div>Redução de prejuizo de ${format_reducao}</div>
+        `
+    }
+</script>
